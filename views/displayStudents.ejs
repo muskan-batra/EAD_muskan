@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('layouts/header')%>
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-8 offset-md-2">
+            
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">City</th>
+            <th scope="col">postcode</th>
+            <!-- <th scope="col">Actions</th> -->
+          </tr>
+        </thead
+        <tbody>
+            <% studentData.forEach((student,index)=>{%>
+                <tr>
+                    <th scope="row"><%=index+1%></th>
+                    <td><%= student.fullname%></td>
+                    <td><%= student.age%></td>
+                    <td><%= student.department%></td>
+                    <td><%= student.address%></td>
+                    
+                    <td>
+                        <!-- <td><img src=<%= "/images/"+student.image%> width="30px"/></td> -->
+                        <a href=<%= "/deleteStudent?id="+student._id  %>>Delete</a> <label>OR</label>
+                        
+                        <a href=<%= "/updateStudent?id="+student._id  %>>Update</a>
+                        <td><img src=<%= "/images/"+student.image%> width="30px"/></td>
+                        
+                    </td>
+                  </tr>
+            <%})%>
+          
+         </tbody>
+      </table> 
+        </div>
+    </div>
+</body>
+</html>
